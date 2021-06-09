@@ -1,0 +1,7 @@
+{
+  "name": "Projekt-IONIC",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
