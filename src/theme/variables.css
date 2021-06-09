@@ -186,8 +186,8 @@ http://ionicframework.com/docs/theming/ */
    */
 
   .md body {
-    --ion-background-color: #7ba3bc;
-    --ion-background-color-rgb: 123,163,188;
+    --ion-background-color: linear-gradient(90deg, rgba(151,181,244,1) 0%, rgba(221,221,227,1) 50%, rgba(151,181,244,1) 100%);
+    --ion-background-color-rgb: 214,213,224;
 
     --ion-text-color: #fdf7f7;
     --ion-text-color-rgb: 253,247,247;
