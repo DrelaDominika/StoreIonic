@@ -30,10 +30,14 @@
             v-model="formInfo.dueDate"
           ></ion-datetime>
         </ion-item>
-        <ion-button @click="handleDidDismiss(false)">ZAPISZ</ion-button>
-        <ion-button color="danger" @click="handleDidDismiss(true)"
+        <transition class="bounceIn">
+        <ion-button @click="handleDidDismiss(false)" shape="round">ZAPISZ</ion-button>
+        </transition>
+        <transition class="bounceIn">
+        <ion-button color="danger" @click="handleDidDismiss(true)" shape="round"
           >COFNIJ</ion-button
         >
+        </transition>
       </ion-content>
     </ion-page>
   </ion-modal>
@@ -157,4 +161,82 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+
+.bounceIn {
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes bounceIn { /*the animation will gradually change from the current style to the new style at certain times*/
+  0%, 20%, 40%, 60%, 80%, 100% {
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  20% {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+  -webkit-transform: scale3d(.9, .9, .9);
+  transform: scale3d(.9, .9, .9);
+  }
+  60% {
+  opacity: 1;
+  -webkit-transform: scale3d(1.03, 1.03, 1.03);
+  transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+  -webkit-transform: scale3d(.97, .97, .97);
+  transform: scale3d(.97, .97, .97);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  }
+  @keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80%, 100% {
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  20% {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+  -webkit-transform: scale3d(.9, .9, .9);
+  transform: scale3d(.9, .9, .9);
+  }
+  60% {
+  opacity: 1;
+  -webkit-transform: scale3d(1.03, 1.03, 1.03);
+  transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+  -webkit-transform: scale3d(.97, .97, .97);
+  transform: scale3d(.97, .97, .97);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  } 
 </style>

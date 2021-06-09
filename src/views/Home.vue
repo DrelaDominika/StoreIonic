@@ -2,7 +2,9 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>HOME/REJESTRACJA PRODUKTU</ion-title>
+        <div class="center">
+        <ion-title>REJESTRACJA PRODUKTU</ion-title>
+        </div>
       </ion-toolbar>
     </ion-header>
 
@@ -22,9 +24,17 @@
         @onDidDismiss="clearAlert()"
       >
       </ion-alert>
-      <ion-button @click="showModal">Dodaj Produkt</ion-button>
+      <div class="center">
+        <transition class="fadeInLeft">
+      <ion-button @click="showModal" shape="round">Dodaj Produkt</ion-button>
+      </transition>
+      <transition class="fadeInRight">
+      <ion-button @click="newpage" shape="round">New </ion-button>
+        </transition>
+      </div>
       <div v-for="item in listData" :key="item.id">
-        <ion-item>
+        <transition class="product_list">
+        <ion-item class="container">
           <ion-label @click="handleEdit(item)">
             <div>Nazwa Produktu: {{ item.title }}</div>
             <div class="ion-text-wrap">Krotki opis: {{ item.description }}</div>
@@ -41,6 +51,7 @@
             ></ion-icon>
           </ion-button>
         </ion-item>
+        </transition>
       </div>
     </ion-content>
   </ion-page>
@@ -63,6 +74,7 @@ import { trashSharp } from "ionicons/icons";
 import { defineComponent, reactive, computed } from "vue";
 import Produkt from "./Produkt.vue";
 import dataStore from "../datastore";
+import 'animate.css';
 
 export default defineComponent({
   name: "Home",
@@ -175,4 +187,163 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.product_list{
+  opacity: 1;
+  transform: scale(0.9);
+  transition:1s;
+}
+.product_list:active{
+  opacity: 1;
+  transform: scale(1);
+  transition:1s;
+}
+.center{
+    text-align: center;
+}
+
+
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInLeft {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInLeft {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  } 
+
+   .fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInRight {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInRight {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  } 
+
+  .bounceIn {
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80%, 100% {
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  20% {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+  -webkit-transform: scale3d(.9, .9, .9);
+  transform: scale3d(.9, .9, .9);
+  }
+  60% {
+  opacity: 1;
+  -webkit-transform: scale3d(1.03, 1.03, 1.03);
+  transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+  -webkit-transform: scale3d(.97, .97, .97);
+  transform: scale3d(.97, .97, .97);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  }
+  @keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80%, 100% {
+  -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  20% {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+  -webkit-transform: scale3d(.9, .9, .9);
+  transform: scale3d(.9, .9, .9);
+  }
+  60% {
+  opacity: 1;
+  -webkit-transform: scale3d(1.03, 1.03, 1.03);
+  transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+  -webkit-transform: scale3d(.97, .97, .97);
+  transform: scale3d(.97, .97, .97);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  }
+  } 
+
 </style>
