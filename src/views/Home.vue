@@ -43,6 +43,13 @@
             <div class="ion-text-wrap">Termin Waznosci: {{ item.dueDate }}</div>
             <p>ID PRODUKTU: {{ item.id }}</p>
           </ion-label>
+          <ion-button @click.self="handleAddPicture(item)" slot="end" fill="clear"
+            ><ion-icon
+              :icon="cameraSharp"
+              slot="icon-only"
+              color="danger"
+            ></ion-icon>
+          </ion-button>
           <ion-button @click.self="handleDelete(item)" slot="end" fill="clear"
             ><ion-icon
               :icon="trashSharp"
@@ -71,6 +78,7 @@ import {
   IonAlert
 } from "@ionic/vue";
 import { trashSharp } from "ionicons/icons";
+import { cameraSharp } from "ionicons/icons";
 import { defineComponent, reactive, computed } from "vue";
 import Produkt from "./Produkt.vue";
 import dataStore from "../datastore";
@@ -180,6 +188,7 @@ export default defineComponent({
       listData,
       modalInfo,
       trashSharp,
+      cameraSharp,
       alert
     };
   }
@@ -201,7 +210,9 @@ export default defineComponent({
     text-align: center;
 }
 
-
+.container{
+  border-radius: 30px;
+}
 
 .fadeInLeft {
   -webkit-animation-name: fadeInLeft;
