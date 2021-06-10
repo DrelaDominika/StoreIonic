@@ -1,5 +1,6 @@
 <template>
   <ion-page>
+    <transition class="fadeIn">
     <ion-header :translucent="true">
       <ion-toolbar>
         <div class="center">
@@ -7,6 +8,7 @@
         </div>
       </ion-toolbar>
     </ion-header>
+    </transition>
 
     <ion-content class="ion-padding">
       <produkt
@@ -28,9 +30,6 @@
         <transition class="fadeInLeft">
       <ion-button @click="showModal" shape="round">Dodaj Produkt</ion-button>
       </transition>
-      <transition class="fadeInRight">
-      <ion-button @click="newpage" shape="round">New </ion-button>
-        </transition>
       </div>
       <div v-for="item in listData" :key="item.id">
         <transition class="product_list">
@@ -372,6 +371,23 @@ export default defineComponent({
   @keyframes fadeOut {
   0% {opacity: 1;}
   100% {opacity: 0;}
+  } 
+
+  .fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+  }
+  @keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
   } 
 
 </style>
