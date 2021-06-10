@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@capacitor/core": "2.4.7",
+    "@ionic/pwa-elements": "^3.0.2",
     "@ionic/vue": "5.4.0-rc.2",
     "@ionic/vue-router": "5.4.0-rc.2",
     "animate.css": "^4.1.1",
